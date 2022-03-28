@@ -1,0 +1,57 @@
+#include "led.h"
+#include "delay.h"
+#include "sys.h"
+#include "usart.h"
+#include "ds18b20.h"
+#include "pwm.h"
+#include "exti.h"
+#include "oled.h"
+//ALIENTEK Mini STM32开发板范例代码23
+//DS18B20数字温度传感器实验
+//技术支持：www.openedv.com
+//广州市星翼电子科技有限公司
+int excnt=0;
+char ss[20];
+int main(void)
+{
+    u8 t=0;
+    short temperature;
+    delay_init();	    	 //延时函数初始化
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);// 设置中断优先级分组2
+		RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO|RCC_APB2Periph_GPIOB, ENABLE);  //使能相应接口的时钟，以及RCC_APB2Periph_AFIO
+		GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);     //禁用JTAG
+    uart_init(9600);	 	//串口初始化为9600
+    LED_Init();		  		//初始化与LED连接的硬件接口
+		EXTIX_Init();
+		OLED_Init();
+    TIM2_PWM_Init(10000,7200);
+    TIM_SetCompare3(TIM2,20);	//从900ms开始亮，亮到1000ms
+		OLED_ShowString(0,0,"hello");
+    while(1)
+    {
+			sprintf(ss,"cnt:%d",excnt);
+				OLED_ShowString(0,2,ss);
+
+    }
+
+
+    while(DS18B20_Init())	//DS18B20初始化
+    {
+        delay_ms(200);
+    }
+
+    while(1)
+    {
+        if(t%10==0)//每100ms读取一次
+        {
+            temperature=DS18B20_Get_Temp();
+
+        }
+        delay_ms(10);
+        t++;
+        if(t==20)
+        {
+            t=0;
+        }
+    }
+}

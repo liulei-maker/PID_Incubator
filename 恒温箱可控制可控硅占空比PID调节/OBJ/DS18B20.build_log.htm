@@ -1,0 +1,106 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: l Qingyan, l, LIC=50D12-9PPF8-49IG2-996W6-FX8RU-48U47
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DARMSTM.DLL V1.65.0.0
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TARMSTM.DLL V1.64.0.0
+ 
+<h2>Project:</h2>
+E:\03本科项目\可控硅恒温箱设计\恒温箱可控制可控硅占空比（刘磊画温控板）\USER\DS18B20.uvprojx
+Project File Date:  06/10/2019
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+..\HARDWARE\LED\led.h(22): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c(29): warning:  #223-D: function "KEY_Init" declared implicitly
+        KEY_Init();                                     //按键初始化
+main.c(45): warning:  #223-D: function "TIM4_Int_Init" declared implicitly
+        TIM4_Int_Init(999,719);//100Khz的计数频率，计数到1000为0.01ms 
+main.c(48): warning:  #223-D: function "KEY_Scan" declared implicitly
+                key=KEY_Scan(1);                //得到键值
+main.c(55): warning:  #223-D: function "abs" declared implicitly
+                if(abs(temperature - last_temperature)>5)
+main.c(18): warning:  #177-D: variable "Temp_Error" was declared but never referenced
+        int Temp_Error=0;  //温度误差值定义
+main.c: 6 warnings, 0 errors
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+compiling led.c...
+..\HARDWARE\LED\led.h(22): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\LED\led.c: 1 warning, 0 errors
+compiling ds18b20.c...
+..\HARDWARE\DS18B20\ds18b20.c(31): warning:  #61-D: integer operation result is out of range
+        DS18B20_IO_IN();//SET PA0 INPUT  
+..\HARDWARE\DS18B20\ds18b20.c(31): warning:  #68-D: integer conversion resulted in a change of sign
+        DS18B20_IO_IN();//SET PA0 INPUT  
+..\HARDWARE\DS18B20\ds18b20.c(56): warning:  #61-D: integer operation result is out of range
+        DS18B20_IO_IN();//SET PA0 INPUT
+..\HARDWARE\DS18B20\ds18b20.c(56): warning:  #68-D: integer conversion resulted in a change of sign
+        DS18B20_IO_IN();//SET PA0 INPUT
+..\HARDWARE\DS18B20\ds18b20.c: 4 warnings, 0 errors
+compiling exti.c...
+..\HARDWARE\LED\led.h(22): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\EXTI\exti.c: 1 warning, 0 errors
+compiling oeld.c...
+..\HARDWARE\OLED\oeld.c(164): warning:  #186-D: pointless comparison of unsigned integer with zero
+        if(num >=0 && num <10)
+..\HARDWARE\OLED\oeld.c: 1 warning, 0 errors
+compiling beep.c...
+compiling timer.c...
+..\HARDWARE\LED\led.h(22): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\TIMER\timer.c: 1 warning, 0 errors
+compiling pid.c...
+..\HARDWARE\LED\led.h(22): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\HARDWARE\PID\pid.c(10): warning:  #177-D: variable "str" was declared but never referenced
+        u8 str[70]="";
+..\HARDWARE\PID\pid.c(13): warning:  #177-D: variable "i" was declared but never referenced
+        u8 i;
+..\HARDWARE\PID\pid.c(27): warning:  #1-D: last line of file ends without a newline
+        
+..\HARDWARE\PID\pid.c: 4 warnings, 0 errors
+compiling key.c...
+compiling delay.c...
+compiling sys.c...
+compiling usart.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_hd.s...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_usart.c...
+compiling misc.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_exti.c...
+linking...
+Program Size: Code=18042 RO-data=2586 RW-data=172 ZI-data=1836  
+FromELF: creating hex file...
+"..\OBJ\DS18B20.axf" - 0 Error(s), 18 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  E:\03本科项目\可控硅恒温箱设计\恒温箱可控制可控硅占空比（刘磊画温控板）\USER\RTE
+  D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+</pre>
+</body>
+</html>
